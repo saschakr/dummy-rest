@@ -1,0 +1,42 @@
+GET http://172.0.0.1:8080/api/employee
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/employee
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lastname": "Kreutz",
+  "firstname": "Sascha",
+  "age": 24,
+  "salary": 100.0
+}
+
+###
+
+PUT http://localhost:8080/api/employee/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lastname": "Kreutz UPDATE",
+  "firstname": "Sascha",
+  "age": 24,
+  "salary": 100.0
+}
+
+###
+
+DELETE http://localhost:8080/api/employee/3
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/openapi
+
+###
+
+DELETE http://172.0.0.1:8080/api/admin
