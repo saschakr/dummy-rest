@@ -31,7 +31,7 @@ mvn wildfly-jar:[dev|run|start|shutdown]
 
 More informations see documentation: https://docs.wildfly.org/bootablejar/#wildfly_jar_other_goals
 
-For development I would use `mvn wildfly-war:dev-watch` because changes will be monitored and deployed fully automatically.
+For development I would use `mvn wildfly-jar:dev-watch` because changes will be monitored and deployed fully automatically.
 
 ### Deploy on webserver
 
