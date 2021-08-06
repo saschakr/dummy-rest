@@ -3,6 +3,7 @@ package com.gitlab.saschakr.dummyrest.api;
 
 import com.gitlab.saschakr.dummyrest.dao.EmployeeDAO;
 import com.gitlab.saschakr.dummyrest.entity.Employee;
+import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
@@ -15,14 +16,21 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/employee")
+@Metered(name = "EmployeeEndpoint")
 public class EmployeeEndpoint {
 
     @Inject
     private EmployeeDAO employeeDAO;
 
     @GET
-    public List<Employee> getEmployee() {
+    public List<Employee> getEmployees() {
         return employeeDAO.load();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Employee getEmployee(@PathParam("id") final long id) {
+        return this.employeeDAO.get(id);
     }
 
     @POST

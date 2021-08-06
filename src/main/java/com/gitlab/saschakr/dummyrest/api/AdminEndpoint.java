@@ -2,6 +2,7 @@ package com.gitlab.saschakr.dummyrest.api;
 
 import com.gitlab.saschakr.dummyrest.service.ResetService;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/admin")
+@Metered(name = "AdminEndpoint")
 public class AdminEndpoint {
 
     @Inject
