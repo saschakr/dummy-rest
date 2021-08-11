@@ -37,6 +37,10 @@ For development I would use `mvn wildfly-jar:dev-watch` because changes will be 
 
 You could just copy the `target/dummy-rest-1.0.war` to you appserver autodeployment folder.
 
+### Start via `java`
+
+You could just run `java -jar target/dummy-rest-1.0-bootable.jar`
+
 ### Docker
 
 ```cmd
