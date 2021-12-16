@@ -17,13 +17,25 @@ import javax.ws.rs.core.Application;
                 version = "1.0",
                 contact = @Contact(name = "SaschaKr", url = "https://gitlab.com/SaschaKr")
         ),
-        servers = @Server(
+        servers = {
+                @Server(
                 url = "http://{host}:{port}/",
-                description = "dummy server",
+                description = "local server",
                 variables = {
                         @ServerVariable(name = "host", defaultValue = "localhost"),
                         @ServerVariable(name = "port", defaultValue = "8080")
-                })
+                }), 
+
+                @Server(
+                url = "http://{host}:{port}/",
+                description = "global server",
+                variables = {
+                        @ServerVariable(name = "host", defaultValue = "dummyrest.skreutz.de"),
+                        @ServerVariable(name = "port", defaultValue = "80")
+                }), 
+        
+        
+        }
 )
 @ApplicationPath("/api")
 public class EndpointApplication extends Application {
