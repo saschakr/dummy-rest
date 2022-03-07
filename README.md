@@ -2,9 +2,9 @@
 
 Dummy rest-api using following technology stack:
 
-- JakartaEE 8
+- JakartaEE 9.1.0
 - Open API
-- Wildfly 24
+- Wildfly 26
 - Docker
 
 ## Run Application 
@@ -39,7 +39,7 @@ You could just copy the `target/dummy-rest-1.0.war` to you appserver autodeploym
 
 ### Start via `java`
 
-You could just run `java -jar target/dummy-rest-1.0-bootable.jar`
+You could just run `java -jar target/dummy-rest-bootable.jar`
 
 ### Docker
 

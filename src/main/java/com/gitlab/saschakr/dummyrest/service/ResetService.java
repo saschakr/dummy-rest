@@ -1,15 +1,17 @@
 package com.gitlab.saschakr.dummyrest.service;
 
-import com.gitlab.saschakr.dummyrest.entity.Employee;
+import jakarta.annotation.PostConstruct;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Schedule;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
+import com.gitlab.saschakr.dummyrest.entity.Employee;
 
 
 @Startup

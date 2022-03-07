@@ -1,12 +1,11 @@
 package com.gitlab.saschakr.dummyrest.dao;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import java.util.List;
 
 import com.gitlab.saschakr.dummyrest.entity.Employee;
-import org.eclipse.microprofile.metrics.annotation.Metered;
-
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
 
 @Stateless
 @Metered(name = "EmployeeDAO")
@@ -20,13 +19,18 @@ public class EmployeeDAO {
     }
 
     public Employee get(final long id) {
+
         return this.em.find(Employee.class, id);
+
     }
 
     public Employee create(final Employee employee) {
+
         final Employee save = new Employee(null, employee.getLastname(), employee.getFirstname(), employee.getAge(), employee.getSalary());
         this.em.persist(save);
+
         return save;
+
     }
 
     public Employee update(final long id, final Employee employee) {
@@ -46,11 +50,14 @@ public class EmployeeDAO {
     }
 
     public Employee delete(final long id) {
+
         final Employee employee = this.get(id);
         if (employee != null) {
             this.em.remove(employee);
         }
+
         return employee;
+
     }
 
 }
