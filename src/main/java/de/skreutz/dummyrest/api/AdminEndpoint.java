@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.api;
+package de.skreutz.dummyrest.api;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -12,7 +12,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import com.gitlab.saschakr.dummyrest.service.ResetService;
+import de.skreutz.dummyrest.service.ResetService;
 
 
 @Tag(name = "Admin", description = "Admin requests")

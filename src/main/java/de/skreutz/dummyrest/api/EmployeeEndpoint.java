@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.api;
+package de.skreutz.dummyrest.api;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -16,9 +16,8 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.util.List;
 
-import com.gitlab.saschakr.dummyrest.dao.EmployeeDAO;
-import com.gitlab.saschakr.dummyrest.entity.Employee;
-
+import de.skreutz.dummyrest.dao.EmployeeDAO;
+import de.skreutz.dummyrest.entity.Employee;
 
 @Tag(name = "Employee", description = "All API-Requests for Employees")
 @Consumes(MediaType.APPLICATION_JSON)
