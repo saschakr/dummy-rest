@@ -14,7 +14,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.ServerVariable;
         title = "Java EE Dummy REST",
         description = "Dummy REST-API for testing and learning",
         version = "1.0",
-        contact = @Contact(name = "SaschaKr", url = "https://gitlab.com/SaschaKr")
+        contact = @Contact(name = "SaschaKr", url = "https://github.com/SaschaKr")
     ),
     servers = {
         @Server(
