@@ -1,5 +1,7 @@
 # JavaEE dummy REST API
 
+[![Docker Image CI](https://github.com/saschakr/dummy-rest/actions/workflows/docker-push.yml/badge.svg)](https://github.com/saschakr/dummy-rest/actions/workflows/docker-push.yml)
+
 Dummy rest-api using following technology stack:
 
 - JakartaEE 9.1.0
@@ -10,6 +12,22 @@ Dummy rest-api using following technology stack:
 ## Run Application 
 
 There are three ways to deploy the app.
+
+### Docker
+
+You can simply run this container with: 
+
+```cmd
+docker pull ghcr.io/saschakr/dummy-rest:latest
+docker run -p 8080:8080 ghcr.io/saschakr/dummy-rest:latest
+```
+
+or even build it local with:
+
+```cmd
+docker build -t dummy-rest .
+docker run -d -p 8080:8080 dummy-rest
+```
 
 ### Maven 
 
@@ -40,10 +58,3 @@ You could just copy the `target/dummy-rest-1.0.war` to you appserver autodeploym
 ### Start via `java`
 
 You could just run `java -jar target/dummy-rest-bootable.jar`
-
-### Docker
-
-```cmd
-docker build -t javaee-rest .
-docker run -d -p 8080:8080 javaee-rest
-```
