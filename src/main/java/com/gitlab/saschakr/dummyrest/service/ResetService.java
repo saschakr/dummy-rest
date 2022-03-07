@@ -10,7 +10,6 @@ import jakarta.persistence.PersistenceContext;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-
 import com.gitlab.saschakr.dummyrest.entity.Employee;
 
 
@@ -18,33 +17,33 @@ import com.gitlab.saschakr.dummyrest.entity.Employee;
 @Singleton
 public class ResetService {
 
-    @Inject
-    @ConfigProperty(name = "AUTO_REFRESH", defaultValue = "true")
-    private boolean autoRefresh;
+  @Inject
+  @ConfigProperty(name = "AUTO_REFRESH", defaultValue = "true")
+  private boolean autoRefresh;
 
-    @PersistenceContext(unitName = "employee")
-    private EntityManager em;
+  @PersistenceContext(unitName = "employee")
+  private EntityManager em;
 
-    @PostConstruct
-    public void init() {
-        this.resetState();
+  @PostConstruct
+  public void init() {
+    this.resetState();
+  }
+
+  @Schedule(minute = "*/5", hour = "*")
+  private void timeout() {
+    if (this.autoRefresh) {
+      System.out.println("Timer hitted");
+      this.resetState();
     }
+  }
 
-    @Schedule(minute = "*/5", hour = "*")
-    private void timeout() {
-        if (this.autoRefresh) {
-            System.out.println("Timer hitted");
-            this.resetState();
-        }
-    }
+  public void resetState() {
 
-    public void resetState() {
+    this.em.createNativeQuery("delete from Employee where 1 = 1").executeUpdate();
+    this.em.createNativeQuery("drop sequence if exists hibernate_sequence").executeUpdate();
+    this.em.createNativeQuery("create sequence hibernate_sequence start with 1 increment by 1").executeUpdate();
 
-        this.em.createNativeQuery("delete from Employee where 1 = 1").executeUpdate();
-        this.em.createNativeQuery("drop sequence if exists hibernate_sequence").executeUpdate();
-        this.em.createNativeQuery("create sequence hibernate_sequence start with 1 increment by 1").executeUpdate();
-
-        //@formatter:off
+    //@formatter:off
         this.em.persist(new Employee(null, "Köhler",   "Willibald",  56, 3000.00));
         this.em.persist(new Employee(null, "Janson",   "Regine",     67, 3100.00));
         this.em.persist(new Employee(null, "Messer",   "Jessika",    24, 3200.00));
@@ -56,6 +55,6 @@ public class ResetService {
         this.em.persist(new Employee(null, "Giehl",    "Zoe",        25, 3800.00));
         this.em.persist(new Employee(null, "Pfenning", "Hieronymus", 73, 3900.00));
         //@formatter:on
-    }
+  }
 
 }
