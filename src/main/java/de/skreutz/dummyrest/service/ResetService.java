@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.service;
+package de.skreutz.dummyrest.service;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Schedule;
@@ -10,7 +10,7 @@ import jakarta.persistence.PersistenceContext;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import com.gitlab.saschakr.dummyrest.entity.Employee;
+import de.skreutz.dummyrest.entity.Employee;
 
 
 @Startup

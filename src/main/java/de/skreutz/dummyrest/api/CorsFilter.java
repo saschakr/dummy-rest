@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.api;
+package de.skreutz.dummyrest.api;
 
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;

@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.api;
+package de.skreutz.dummyrest.api;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

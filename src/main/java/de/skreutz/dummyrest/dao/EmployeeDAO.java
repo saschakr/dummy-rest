@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.dao;
+package de.skreutz.dummyrest.dao;
 
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -8,7 +8,7 @@ import org.eclipse.microprofile.metrics.annotation.Metered;
 
 import java.util.List;
 
-import com.gitlab.saschakr.dummyrest.entity.Employee;
+import de.skreutz.dummyrest.entity.Employee;
 
 @Stateless
 @Metered(name = "EmployeeDAO")

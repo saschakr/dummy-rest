@@ -1,4 +1,4 @@
-package com.gitlab.saschakr.dummyrest.api;
+package de.skreutz.dummyrest.api;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
